@@ -11,8 +11,9 @@ Napraviti javnu klasu **TekstDemo** u paketu **zadatak1.poslovna_logika** koja i
 
 Napraviti vizuelnu klasu **TekstEditorGUI** u paketu **zadatak1.gui** koja izgleda kao na slici. Centralni deo ekrana bi trebalo da bude editor za tekst. Kada se promeni dimenzija forme, trebalo bi da se ovaj centralni deo poveća/smanji, a da ostale komponente ostanu na istom mestu kao na drugoj slici.
 
-![Editor Gui](../images/tekst-editor-gui.jpg)
-![Editor Gui](../images/tekst-editor-gui-prosiren.jpg)
+![Editor Gui](../images/tekst-editor-gui.JPG)
+
+![Editor Gui](../images/tekst-editor-gui-prosiren.JPG)
 
 1. Klasa treba da ima privatni atribut **tekstDemo** tipa **TekstDemo** koji se inicijalizuje prilikom deklaracije.
 
@@ -26,9 +27,8 @@ Napraviti vizuelnu klasu **TekstEditorGUI** u paketu **zadatak1.gui** koja izgle
 
 ![Dialog zamena](../images/greska-upisi-dijalog.jpg)
 
-5. Kada se klikne dugme **Zameni**, otvora se dijalog u koji korisnik unosi String koji treba zameniti i String kojim treba zameniti, a zatim nakon klika na dugme **OK** u dijalogu, vrši zamenu svih pojavljivanja Stringa u tekstu u editoru.
-
-![Dialog zamena](../images/zamena-teksta-dijalog.jpg)
+5. U poljima za unos sa desne strane forme korisnik unosi String koji treba zameniti i String kojim treba zameniti. 
+Kada se klikne dugme **Zameni**, iz polja za unos preuzimaju se unete vrednosti i vrši se zamena svih pojavljivanja Stringa u tekstu u editoru.
 
 6. Kada se klikne na dugme **Izadji**, prekida se izvršavanje programa. Prethodno pitati korisnika da li zeli da izadje iz programa preko JOptionPane dijaloga.
 

@@ -25,7 +25,7 @@ public class TekstEditorGUI extends JFrame {
 	private TekstDemo tekstDemo = new TekstDemo();
 
 	private JPanel contentPane;
-	private JPanel panel;
+	private JPanel panel1;
 	private JTextArea textAreaEditor;
 	private JLabel lblImeFajla;
 	private JTextField textFieldUnosImena;
@@ -35,6 +35,9 @@ public class TekstEditorGUI extends JFrame {
 	private JButton btnZameni;
 	private JButton btnAnalizaTeksta;
 	private JButton btnIzadji;
+	private JPanel panel2;
+	private JTextField replaceField;
+	private JTextField replaceWithField;
 
 	/**
 	 * Launch the application.
@@ -58,29 +61,29 @@ public class TekstEditorGUI extends JFrame {
 	public TekstEditorGUI() {
 		setTitle("Tekst Editor");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 718, 285);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		contentPane.add(getPanel(), BorderLayout.WEST);
+		contentPane.add(getPanel1(), BorderLayout.WEST);
 		contentPane.add(getTextAreaEditor(), BorderLayout.CENTER);
+		contentPane.add(getPanel2(), BorderLayout.EAST);
 	}
 
-	private JPanel getPanel() {
-		if (panel == null) {
-			panel = new JPanel();
-			panel.setPreferredSize(new Dimension(120, 10));
-			panel.add(getLblImeFajla());
-			panel.add(getTextFieldUnosImena());
-			panel.add(getBtnUcitaj());
-			panel.add(getBtnObrisi());
-			panel.add(getBtnSacuvaj());
-			panel.add(getBtnZameni());
-			panel.add(getBtnAnalizaTeksta());
-			panel.add(getBtnIzadji());
+	private JPanel getPanel1() {
+		if (panel1 == null) {
+			panel1 = new JPanel();
+			panel1.setPreferredSize(new Dimension(120, 10));
+			panel1.add(getLblImeFajla());
+			panel1.add(getTextFieldUnosImena());
+			panel1.add(getBtnUcitaj());
+			panel1.add(getBtnObrisi());
+			panel1.add(getBtnSacuvaj());
+			panel1.add(getBtnAnalizaTeksta());
+			panel1.add(getBtnIzadji());
 		}
-		return panel;
+		return panel1;
 	}
 
 	private JTextArea getTextAreaEditor() {
@@ -160,10 +163,15 @@ public class TekstEditorGUI extends JFrame {
 	private JButton getBtnZameni() {
 		if (btnZameni == null) {
 			btnZameni = new JButton("Zameni");
+			btnZameni.setBounds(82, 155, 100, 23);
 			btnZameni.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ZameniDialog dialog = new ZameniDialog(TekstEditorGUI.this);
-					dialog.setVisible(true);
+					String staSeMenja= replaceField.getText().trim();
+					String zamena = replaceWithField.getText().trim();
+
+					String tekst = textAreaEditor.getText();
+					String noviTekst = tekst.replaceAll(staSeMenja, zamena);
+					textAreaEditor.setText(noviTekst);
 				}
 			});
 			btnZameni.setPreferredSize(new Dimension(100, 23));
@@ -208,9 +216,31 @@ public class TekstEditorGUI extends JFrame {
 		return btnIzadji;
 	}
 
-	public void zameniString(String staSeMenja, String zamena) {
-		String tekst = textAreaEditor.getText();
-		String noviTekst = tekst.replaceAll(staSeMenja, zamena);
-		textAreaEditor.setText(noviTekst);
+	private JPanel getPanel2() {
+		if (panel2 == null) {
+			panel2 = new JPanel();
+			panel2.setPreferredSize(new Dimension(240, 10));
+			panel2.setLayout(null);
+			
+			JLabel lblNewLabel = new JLabel("String koji se menja:");
+			lblNewLabel.setBounds(10, 66, 135, 14);
+			panel2.add(lblNewLabel);
+			
+			replaceField = new JTextField();
+			replaceField.setColumns(10);
+			replaceField.setBounds(140, 63, 85, 20);
+			panel2.add(replaceField);
+			
+			JLabel lblNewLabel_1 = new JLabel("String kojim se menja:");
+			lblNewLabel_1.setBounds(10, 116, 135, 14);
+			panel2.add(lblNewLabel_1);
+			
+			replaceWithField = new JTextField();
+			replaceWithField.setColumns(10);
+			replaceWithField.setBounds(140, 113, 85, 20);
+			panel2.add(replaceWithField);
+			panel2.add(getBtnZameni());
+		}
+		return panel2;
 	}
 }
