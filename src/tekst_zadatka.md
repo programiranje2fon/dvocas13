@@ -1,6 +1,6 @@
-#Laboratorijske vežbe za dvočas br. 13
+# Laboratorijske vežbe za dvočas br. 13
 
-##Zadatak 1
+## Zadatak 1
 *(radi ga laborant u saradnji sa studentima)*
 
 Napraviti javnu klasu **TekstDemo** u paketu **zadatak1.poslovna_logika** koja ima:
@@ -35,7 +35,7 @@ Kada se klikne dugme **Zameni**, iz polja za unos preuzimaju se unete vrednosti 
 ![Dialog zamena](../images/potvrdi-izlaz-dijalog.jpg)
 
 
-##Zadatak 2
+## Zadatak 2
 *(studenti rade sami)*
 
 1. Dodati dugme **Analiza**, na koje kada se klikne, prebrojava broj znakova i reči u tekstu i otvara se novi dijalog u kome se
